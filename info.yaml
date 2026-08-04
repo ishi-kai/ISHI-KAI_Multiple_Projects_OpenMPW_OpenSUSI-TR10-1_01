@@ -44,7 +44,7 @@ mdp:
   # Output GDS file name generated after MDP
   # Recommended:
   #   IP62_<github_username>.gds
-  file: "tr_1um_ishikai01.gds"
+  file: "IP62_ishikai01.gds"
 
 # ======================================================
 # PDK configuration (DO NOT MODIFY unless necessary)
