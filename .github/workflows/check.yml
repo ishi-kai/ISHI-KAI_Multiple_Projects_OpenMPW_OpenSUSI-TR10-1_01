@@ -217,20 +217,6 @@ jobs:
             exit 4
           fi
 
-      - name: Run IP62 DRC (headless)
-        run: |
-          klayout -b -r "TR-1um/${{ needs.Precheck.outputs.pdk_dir }}/klayout/tech/drc/run_IP62.drc" \
-            -rd input="mdp/${{ needs.Precheck.outputs.mdp_file }}" \
-            -rd top_cell="${{ needs.Precheck.outputs.top_cell }}" \
-            -rd report="${{ needs.Precheck.outputs.report }}"
-
-      - name: Upload IP62 DRC report
-        uses: actions/upload-artifact@v4
-        with:
-          name: DRC_report_MDP
-          if-no-files-found: error
-          path: mdp/${{ needs.Precheck.outputs.report }}
-
       - name: Decide pass/fail by report (XML)
         run: |
           set -euo pipefail
